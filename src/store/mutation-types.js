@@ -1,0 +1,8 @@
+export const LOG_IN_REQUEST = 'LOG_IN_REQUEST';
+export const LOG_IN_SUCCESS = 'LOG_IN_SUCCESS';
+export const LOG_IN_FAILURE = 'LOG_IN_FAILURE';
+export const LOG_OUT = 'LOG_OUT';
+
+export const SAVE_LOG_REQUEST = "SAVE_LOG_REQUEST";
+export const SAVE_LOG_SUCCESS = "SAVE_LOG_SUCCESS";
+export const SAVE_LOG_FAILURE = "SAVE_LOG_FAILURE";
