@@ -14,7 +14,6 @@ export default createStore({
     currentUser: null,
     loggingIn: false,
     logInFailure: false,
-
     savingLog: false,
     logs: []
   },
