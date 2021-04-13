@@ -15,6 +15,11 @@
       +
     </button>
     <InputForm @saveLog="onSaveLog" v-show="inputFormVisible"></InputForm>
+    <DisplayLog
+      v-for="(log, idx) in logs"
+      :key="idx"
+      :logData="log"
+    ></DisplayLog>
     <button v-on:click="logOut" v-if="currentUser && !loggingIn">
       Log Out
     </button>
@@ -24,6 +29,7 @@
 <script>
 import { mapState } from "vuex";
 import InputForm from "@/components/InputForm";
+import DisplayLog from "@/components/DisplayLog";
 
 export default {
   name: "MainLanding",
@@ -48,7 +54,6 @@ export default {
     },
     onSaveLog(newLog) {
       this.$store.dispatch("saveLog", newLog);
-      this.inputFormVisible = false;
     },
   },
   computed: mapState({
@@ -60,6 +65,7 @@ export default {
   }),
   components: {
     InputForm,
+    DisplayLog,
   },
 };
 </script>
