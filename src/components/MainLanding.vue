@@ -30,6 +30,7 @@
     <button v-on:click="logOut" v-if="currentUser && !loggingIn">
       Log Out
     </button>
+    <UserGetter></UserGetter>
   </div>
 </template>
 
@@ -38,6 +39,7 @@ import { mapState } from "vuex";
 import InputForm from "@/components/InputForm";
 import LoginForm from "@/components/LoginForm";
 import DisplayLog from "@/components/DisplayLog";
+import UserGetter from "@/components/UserGetter";
 
 export default {
   name: "MainLanding",
@@ -85,6 +87,7 @@ export default {
     InputForm,
     DisplayLog,
     LoginForm,
+    UserGetter
   },
 };
 </script>
