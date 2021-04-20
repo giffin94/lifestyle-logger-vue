@@ -3,7 +3,9 @@
 <template>
   <div class="mainWrapper">
     <h1>{{ msg }}</h1>
-    <button v-on:click="logIn" v-if="!currentUser && !loggingIn">Log In</button>
+    <button v-on:click="toggleLoginForm" v-if="!currentUser && !loggingIn">
+      Log In
+    </button>
     <p class="loginFailure" v-show="!currentUser && !loggingIn && loginFailure">
       Login Failed, Try again
     </p>
@@ -14,6 +16,11 @@
     >
       +
     </button>
+    <LoginForm
+      @submitNewUser="onSubmitNewUser"
+      @submitUserLogin="onSubmitUserLogin"
+      v-if="loginFormVisible"
+    ></LoginForm>
     <InputForm @saveLog="onSaveLog" v-show="inputFormVisible"></InputForm>
     <DisplayLog
       v-for="(log, idx) in logs"
@@ -29,6 +36,7 @@
 <script>
 import { mapState } from "vuex";
 import InputForm from "@/components/InputForm";
+import LoginForm from "@/components/LoginForm";
 import DisplayLog from "@/components/DisplayLog";
 
 export default {
@@ -36,12 +44,22 @@ export default {
   data() {
     return {
       inputFormVisible: false,
+      loginFormVisible: false,
     };
   },
   props: {
     msg: String,
   },
   methods: {
+    toggleLoginForm() {
+      this.loginFormVisible = !this.loginFormVisible;
+    },
+    onSubmitNewUser(...args) {
+      console.log(args);
+    },
+    onSubmitUserLogin(...args) {
+      console.log(args);
+    },
     logIn() {
       this.$store.dispatch("logIn", { user: "Aedan" });
     },
@@ -66,6 +84,7 @@ export default {
   components: {
     InputForm,
     DisplayLog,
+    LoginForm,
   },
 };
 </script>
