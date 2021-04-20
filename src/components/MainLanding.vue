@@ -19,7 +19,7 @@
     <LoginForm
       @submitNewUser="onSubmitNewUser"
       @submitUserLogin="onSubmitUserLogin"
-      v-if="loginFormVisible"
+      v-if="loginFormVisible && !currentUser"
     ></LoginForm>
     <InputForm @saveLog="onSaveLog" v-show="inputFormVisible"></InputForm>
     <DisplayLog
@@ -57,8 +57,8 @@ export default {
     onSubmitNewUser(...args) {
       console.log(args);
     },
-    onSubmitUserLogin(...args) {
-      console.log(args);
+    onSubmitUserLogin() {
+      this.$store.dispatch("logIn", { user: "Aedan" });
     },
     logIn() {
       this.$store.dispatch("logIn", { user: "Aedan" });
