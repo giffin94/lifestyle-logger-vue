@@ -56,8 +56,9 @@ export default {
     toggleLoginForm() {
       this.loginFormVisible = !this.loginFormVisible;
     },
-    onSubmitNewUser(...args) {
-      console.log(args);
+    onSubmitNewUser(data) {
+      console.log(data);
+      this.$store.dispatch("createUser", data);
     },
     onSubmitUserLogin() {
       this.$store.dispatch("logIn", { user: "Aedan" });
@@ -87,7 +88,7 @@ export default {
     InputForm,
     DisplayLog,
     LoginForm,
-    UserGetter
+    UserGetter,
   },
 };
 </script>

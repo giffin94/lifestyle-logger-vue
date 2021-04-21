@@ -12,7 +12,8 @@ export default {
       axios
         .get("http://127.0.0.1:8000/users/", {
           headers: {
-            Authorization: "Token 31b6debb8348fbf9f4aed9a46c7a2917590c65a5",
+            Authorization: "Token 7decfe42e9a64666834deff01dc2ad78458ae0a2",
+            // Authorization: "Token 1ae256c8d890bcaa2bf7e81f5c424be504116093",
           },
         })
         .then((response) => {

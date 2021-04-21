@@ -17,13 +17,13 @@
         <span class="label">Email:</span>
         <input v-model="userData.email" />
         <span class="label">Username:</span>
-        <input v-model="userData.userName" />
+        <input v-model="userData.username" />
       </div>
       <div class="row">
         <span class="label">Password:</span>
         <input v-model="userData.password" type="password" />
         <span class="label">Confirm Password:</span>
-        <input v-model="userData.passwordConfirm" type="password" />
+        <input v-model="userData.password2" type="password" />
       </div>
     </div>
     <button @click="submitUserInfo">Submit</button>
@@ -41,9 +41,9 @@ export default {
     return {
       userData: {
         email: "",
-        userName: "",
+        username: "",
         password: "",
-        passwordConfirm: "",
+        password2: "",
       },
       newUserVariant: false,
     };
